@@ -8,11 +8,15 @@ import java.util.ArrayList;
 public class CheckAllCanMove {
     public static boolean can = true;
     static String getMessage;
+    static String getGoWalk;
+    static String getGoColor;
     static boolean kill = false;
 
     public static boolean ifCan() {
 
         getMessage = TableForGame.visionGUI.squareMassage.getText();
+        getGoWalk = TableForGame.visionGUI.goWalk.getText();
+        getGoColor = "go" + GoColorControl.goColor.name();
 
         ArrayList<Piece> chessArrayListCopy = new ArrayList<>(CreateArrayChess.chessArrayList);
 
@@ -67,8 +71,8 @@ public class CheckAllCanMove {
                             can = true;
                             chess.numAddress = reserveNumAddress;
                             chess.charAddress = reserveCharAddress;
-                            TableForGame.visionGUI.attackIs.setText("go" + GoColorControl.goColor.name());
-                            TableForGame.visionGUI.goWalk.setText("Go!");
+                            TableForGame.visionGUI.attackIs.setText(getGoColor);
+                            TableForGame.visionGUI.goWalk.setText(getGoWalk);
                             TableForGame.visionGUI.squareMassage.setText(getMessage);
                             break OUT;
                         }
